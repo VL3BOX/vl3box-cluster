@@ -1,0 +1,13 @@
+---
+# yaml-language-server: $schema=https://taskfile.dev/schema.json
+version: "3"
+
+tasks:
+  cli:
+    - kubectl run -i --tty --rm debug --image=nicolaka/netshoot --restart=Never -- sh
+  mc:
+    - kubectl run -i --tty --rm sh --image=minio/mc --restart=Never --command -- sh
+  reconcile:
+    - flux reconcile kustomization cluster --with-source
+  rollout:
+    - kubectl rollout restart deployment coredns -n kube-system

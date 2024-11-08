@@ -1,0 +1,9 @@
+---
+apiVersion: source.toolkit.fluxcd.io/v1
+kind: HelmRepository
+metadata:
+  name: small-hack
+  namespace: flux-system
+spec:
+  interval: 1h
+  url: https://small-hack.github.io/bitwarden-eso-provider

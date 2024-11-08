@@ -1,0 +1,23 @@
+---
+keys:
+  - &user_vl3box age1ktq3kavysyvghws0y3ex052l5vp2fjhvfplax9jj2tyfwmaae9lqqmlk3u
+  - &user_flux age1qfahhjuu2yqn039q40jk4zd3kulvd2ngey82cvx55zakf36pmvxsrtmq8a
+
+creation_rules:
+  - path_regex: kubernetes/.*/talos/.*\.sops\.ya?ml$
+    key_groups:
+      - age:
+          - *user_vl3box
+          - *user_flux
+
+  - path_regex: kubernetes/.*\.sops\.ya?ml$
+    encrypted_regex: "^(data|stringData)$"
+    key_groups:
+      - age:
+          - *user_vl3box
+          - *user_flux
+
+  - path_regex: .*\.sops\.ya?ml$
+    key_groups:
+      - age:
+          - *user_vl3box

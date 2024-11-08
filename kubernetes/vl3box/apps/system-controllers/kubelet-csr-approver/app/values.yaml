@@ -1,0 +1,4 @@
+---
+providerRegex: ^(vk1)$
+bypassDnsResolution: true
+replicas: 1

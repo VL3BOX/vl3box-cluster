@@ -1,0 +1,13 @@
+---
+apiVersion: externaldns.k8s.io/v1alpha1
+kind: DNSEndpoint
+metadata:
+  name: cloudflared-tunnel
+spec:
+  endpoints:
+    - dnsName: e.vl3box.com
+      recordType: CNAME
+      targets: ["efab91d1-2020-44d7-831d-ad0a39351981.cfargotunnel.com"]
+    - dnsName: pghd.vl3box.com
+      recordType: CNAME
+      targets: ["efab91d1-2020-44d7-831d-ad0a39351981.cfargotunnel.com"]

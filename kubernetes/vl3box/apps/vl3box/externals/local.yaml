@@ -1,0 +1,133 @@
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: vl3box-mirror
+  namespace: vl3box
+  labels:
+    app.kubernetes.io/name: vl3box-mirror
+    app.kubernetes.io/instance: vl3box-mirror
+spec:
+  type: ExternalName
+  externalName: 10.11.1.10
+  ports:
+    - name: http
+      port: &port 3000
+      protocol: TCP
+      targetPort: *port
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: vl3box-mirror
+  namespace: vl3box
+  annotations:
+    # nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
+    external-dns.alpha.kubernetes.io/target: e.vl3box.com
+  labels:
+    app.kubernetes.io/name: vl3box-mirror
+    app.kubernetes.io/instance: vl3box-mirror
+spec:
+  ingressClassName: external-nginx
+  rules:
+    - host: cms.vl3box.com
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: vl3box-mirror
+                port:
+                  number: 3000
+    - host: data.vl3box.com
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: vl3box-mirror
+                port:
+                  number: 3000
+    - host: helper.vl3box.com
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: vl3box-mirror
+                port:
+                  number: 3000
+    - host: next2.vl3box.com
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: vl3box-mirror
+                port:
+                  number: 3000
+    - host: node.vl3box.com
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: vl3box-mirror
+                port:
+                  number: 3000
+    - host: spider2.vl3box.com
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: vl3box-mirror
+                port:
+                  number: 3000
+    - host: team.vl3box.com
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: vl3box-mirror
+                port:
+                  number: 3000
+    - host: pay.vl3box.com
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: vl3box-mirror
+                port:
+                  number: 3000
+    - host: server.vl3box.com
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: vl3box-mirror
+                port:
+                  number: 3000
+  tls:
+    - hosts:
+        - cms.vl3box.com
+        - data.vl3box.com
+        - helper.vl3box.com
+        - next2.vl3box.com
+        - node.vl3box.com
+        - spider2.vl3box.com
+        - pay.vl3box.com
+        - team.vl3box.com
+        - server.vl3box.com

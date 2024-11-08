@@ -1,0 +1,14 @@
+---
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: "vl3box-domain"
+spec:
+  secretName: "vl3box-domain-tls"
+  issuerRef:
+    name: letsencrypt-production
+    kind: ClusterIssuer
+  commonName: "vl3box.com"
+  dnsNames:
+    - "vl3box.com"
+    - "*.vl3box.com"

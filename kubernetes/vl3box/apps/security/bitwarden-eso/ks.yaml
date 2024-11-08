@@ -1,0 +1,21 @@
+---
+# yaml-language-server: $schema=https://raw.githubusercontent.com/fluxcd-community/flux2-schemas/main/kustomization-kustomize-v1.json
+apiVersion: kustomize.toolkit.fluxcd.io/v1
+kind: Kustomization
+metadata:
+  name: &appname bitwarden-eso
+  namespace: flux-system
+spec:
+  targetNamespace: security
+  commonMetadata:
+    labels:
+      app.kubernetes.io/name: *appname
+  interval: 10m
+  path: "./kubernetes/vl3box/apps/security/bitwarden-eso/app"
+  prune: true
+  sourceRef:
+    kind: GitRepository
+    name: vl3box-ops
+  wait: true
+  dependsOn:
+    - name: external-secrets
