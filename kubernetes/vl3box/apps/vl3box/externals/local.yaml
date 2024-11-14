@@ -22,7 +22,7 @@ metadata:
   name: vl3box-mirror
   namespace: vl3box
   annotations:
-    external-dns.alpha.kubernetes.io/target: e.vl3box.com
+    external-dns.alpha.kubernetes.io/target: i.prev.vl3box.com
   labels:
     app.kubernetes.io/name: vl3box-mirror
     app.kubernetes.io/instance: vl3box-mirror

@@ -8,6 +8,9 @@ spec:
     - dnsName: e.vl3box.com
       recordType: CNAME
       targets: ["efab91d1-2020-44d7-831d-ad0a39351981.cfargotunnel.com"]
+    - dnsName: e.prev.vl3box.com
+      recordType: CNAME
+      targets: ["efab91d1-2020-44d7-831d-ad0a39351981.cfargotunnel.com"]
     - dnsName: pghd.vl3box.com
       recordType: CNAME
       targets: ["efab91d1-2020-44d7-831d-ad0a39351981.cfargotunnel.com"]
