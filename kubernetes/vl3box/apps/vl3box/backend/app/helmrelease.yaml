@@ -74,55 +74,55 @@ spec:
         annotations:
           external-dns.alpha.kubernetes.io/target: e.vl3box.com
         hosts:
-          - host: &hostName cms.vl3box.com
+          - host: cms.vl3box.com
             paths:
               - path: /
                 service:
                   identifier: app
                   port: http
-          - host: &hostName cms.vl3box.com
+          - host: data.vl3box.com
             paths:
               - path: /
                 service:
                   identifier: app
                   port: http
-          - host: &hostName cms.vl3box.com
+          - host: helper.vl3box.com
             paths:
               - path: /
                 service:
                   identifier: app
                   port: http
-          - host: &hostName cms.vl3box.com
+          - host: next2.vl3box.com
             paths:
               - path: /
                 service:
                   identifier: app
                   port: http
-          - host: &hostName cms.vl3box.com
+          - host: node.vl3box.com
             paths:
               - path: /
                 service:
                   identifier: app
                   port: http
-          - host: &hostName cms.vl3box.com
+          - host: spider2.vl3box.com
             paths:
               - path: /
                 service:
                   identifier: app
                   port: http
-          - host: &hostName cms.vl3box.com
+          - host: pay.vl3box.com
             paths:
               - path: /
                 service:
                   identifier: app
                   port: http
-          - host: &hostName cms.vl3box.com
+          - host: team.vl3box.com
             paths:
               - path: /
                 service:
                   identifier: app
                   port: http
-          - host: &hostName cms.vl3box.com
+          - host: server.vl3box.com
             paths:
               - path: /
                 service:
