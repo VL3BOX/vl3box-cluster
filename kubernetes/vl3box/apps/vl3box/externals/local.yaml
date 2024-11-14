@@ -22,7 +22,6 @@ metadata:
   name: vl3box-mirror
   namespace: vl3box
   annotations:
-    # nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
     external-dns.alpha.kubernetes.io/target: e.vl3box.com
   labels:
     app.kubernetes.io/name: vl3box-mirror
@@ -30,7 +29,7 @@ metadata:
 spec:
   ingressClassName: external-nginx
   rules:
-    - host: cms.vl3box.com
+    - host: cms.prev.vl3box.com
       http:
         paths:
           - path: /
@@ -40,7 +39,7 @@ spec:
                 name: vl3box-mirror
                 port:
                   number: 3000
-    - host: data.vl3box.com
+    - host: data.prev.vl3box.com
       http:
         paths:
           - path: /
@@ -50,7 +49,7 @@ spec:
                 name: vl3box-mirror
                 port:
                   number: 3000
-    - host: helper.vl3box.com
+    - host: helper.prev.vl3box.com
       http:
         paths:
           - path: /
@@ -60,7 +59,7 @@ spec:
                 name: vl3box-mirror
                 port:
                   number: 3000
-    - host: next2.vl3box.com
+    - host: next2.prev.vl3box.com
       http:
         paths:
           - path: /
@@ -70,7 +69,7 @@ spec:
                 name: vl3box-mirror
                 port:
                   number: 3000
-    - host: node.vl3box.com
+    - host: node.prev.vl3box.com
       http:
         paths:
           - path: /
@@ -80,7 +79,7 @@ spec:
                 name: vl3box-mirror
                 port:
                   number: 3000
-    - host: spider2.vl3box.com
+    - host: spider2.prev.vl3box.com
       http:
         paths:
           - path: /
@@ -90,7 +89,7 @@ spec:
                 name: vl3box-mirror
                 port:
                   number: 3000
-    - host: team.vl3box.com
+    - host: team.prev.vl3box.com
       http:
         paths:
           - path: /
@@ -100,7 +99,7 @@ spec:
                 name: vl3box-mirror
                 port:
                   number: 3000
-    - host: pay.vl3box.com
+    - host: pay.prev.vl3box.com
       http:
         paths:
           - path: /
@@ -110,7 +109,7 @@ spec:
                 name: vl3box-mirror
                 port:
                   number: 3000
-    - host: server.vl3box.com
+    - host: server.prev.vl3box.com
       http:
         paths:
           - path: /
@@ -122,12 +121,12 @@ spec:
                   number: 3000
   tls:
     - hosts:
-        - cms.vl3box.com
-        - data.vl3box.com
-        - helper.vl3box.com
-        - next2.vl3box.com
-        - node.vl3box.com
-        - spider2.vl3box.com
-        - pay.vl3box.com
-        - team.vl3box.com
-        - server.vl3box.com
+        - cms.prev.vl3box.com
+        - data.prev.vl3box.com
+        - helper.prev.vl3box.com
+        - next2.prev.vl3box.com
+        - node.prev.vl3box.com
+        - spider2.prev.vl3box.com
+        - pay.prev.vl3box.com
+        - team.prev.vl3box.com
+        - server.prev.vl3box.com

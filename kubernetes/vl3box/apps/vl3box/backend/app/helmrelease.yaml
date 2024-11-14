@@ -3,7 +3,7 @@
 apiVersion: helm.toolkit.fluxcd.io/v2
 kind: HelmRelease
 metadata:
-  name: vl3box-cms
+  name: vl3box-backend
 spec:
   interval: 12h
   chart:
@@ -17,7 +17,7 @@ spec:
         namespace: flux-system
   values:
     controllers:
-      cms:
+      backend:
         annotations:
           secret.reloader.stakater.com/reload: vl3box-db-secret
         pod:
@@ -32,7 +32,7 @@ spec:
               tag: latest@sha256:54e78c9984cb9d896478d4613b7cdf9efb0e7ae8609f067e95e3b92610b46d70
             env:
               LOG_LEVEL: info
-              NODE_ENV: test
+              NODE_ENV: production
               PORT: 3000
             envFrom:
               - secretRef:
@@ -62,7 +62,7 @@ spec:
 
     service:
       app:
-        controller: cms
+        controller: backend
         ports:
           http:
             port: 3000
@@ -79,6 +79,63 @@ spec:
                 service:
                   identifier: app
                   port: http
+          - host: &hostName cms.vl3box.com
+            paths:
+              - path: /
+                service:
+                  identifier: app
+                  port: http
+          - host: &hostName cms.vl3box.com
+            paths:
+              - path: /
+                service:
+                  identifier: app
+                  port: http
+          - host: &hostName cms.vl3box.com
+            paths:
+              - path: /
+                service:
+                  identifier: app
+                  port: http
+          - host: &hostName cms.vl3box.com
+            paths:
+              - path: /
+                service:
+                  identifier: app
+                  port: http
+          - host: &hostName cms.vl3box.com
+            paths:
+              - path: /
+                service:
+                  identifier: app
+                  port: http
+          - host: &hostName cms.vl3box.com
+            paths:
+              - path: /
+                service:
+                  identifier: app
+                  port: http
+          - host: &hostName cms.vl3box.com
+            paths:
+              - path: /
+                service:
+                  identifier: app
+                  port: http
+          - host: &hostName cms.vl3box.com
+            paths:
+              - path: /
+                service:
+                  identifier: app
+                  port: http
+
         tls:
           - hosts:
-              - *hostName
+              - cms.prev.vl3box.com
+              - data.prev.vl3box.com
+              - helper.prev.vl3box.com
+              - next2.prev.vl3box.com
+              - node.prev.vl3box.com
+              - spider2.prev.vl3box.com
+              - pay.prev.vl3box.com
+              - team.prev.vl3box.com
+              - server.prev.vl3box.com
