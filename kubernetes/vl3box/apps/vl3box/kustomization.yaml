@@ -6,6 +6,6 @@ resources:
   # Pre Flux-Kustomizations
   - ./namespace.yaml
   # Flux-Kustomizations
-  # - ./backend/ks.yaml
+  - ./backend/ks.yaml
   - ./externals
   - ./pull/ks.yaml
