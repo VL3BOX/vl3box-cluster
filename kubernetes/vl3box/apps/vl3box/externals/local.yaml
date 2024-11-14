@@ -2,11 +2,11 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: vl3box-mirror
+  name: vl3box-prev
   namespace: vl3box
   labels:
-    app.kubernetes.io/name: vl3box-mirror
-    app.kubernetes.io/instance: vl3box-mirror
+    app.kubernetes.io/name: vl3box-prev
+    app.kubernetes.io/instance: vl3box-prev
 spec:
   type: ExternalName
   externalName: 10.11.1.10
@@ -19,15 +19,15 @@ spec:
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: vl3box-mirror
+  name: vl3box-prev
   namespace: vl3box
   annotations:
     external-dns.alpha.kubernetes.io/target: i.prev.vl3box.com
   labels:
-    app.kubernetes.io/name: vl3box-mirror
-    app.kubernetes.io/instance: vl3box-mirror
+    app.kubernetes.io/name: vl3box-prev
+    app.kubernetes.io/instance: vl3box-prev
 spec:
-  ingressClassName: external-nginx
+  ingressClassName: internal-nginx
   rules:
     - host: cms.prev.vl3box.com
       http:
@@ -36,7 +36,7 @@ spec:
             pathType: Prefix
             backend:
               service:
-                name: vl3box-mirror
+                name: vl3box-prev
                 port:
                   number: 3000
     - host: data.prev.vl3box.com
@@ -46,7 +46,7 @@ spec:
             pathType: Prefix
             backend:
               service:
-                name: vl3box-mirror
+                name: vl3box-prev
                 port:
                   number: 3000
     - host: helper.prev.vl3box.com
@@ -56,7 +56,7 @@ spec:
             pathType: Prefix
             backend:
               service:
-                name: vl3box-mirror
+                name: vl3box-prev
                 port:
                   number: 3000
     - host: next2.prev.vl3box.com
@@ -66,7 +66,7 @@ spec:
             pathType: Prefix
             backend:
               service:
-                name: vl3box-mirror
+                name: vl3box-prev
                 port:
                   number: 3000
     - host: node.prev.vl3box.com
@@ -76,7 +76,7 @@ spec:
             pathType: Prefix
             backend:
               service:
-                name: vl3box-mirror
+                name: vl3box-prev
                 port:
                   number: 3000
     - host: spider2.prev.vl3box.com
@@ -86,7 +86,7 @@ spec:
             pathType: Prefix
             backend:
               service:
-                name: vl3box-mirror
+                name: vl3box-prev
                 port:
                   number: 3000
     - host: team.prev.vl3box.com
@@ -96,7 +96,7 @@ spec:
             pathType: Prefix
             backend:
               service:
-                name: vl3box-mirror
+                name: vl3box-prev
                 port:
                   number: 3000
     - host: pay.prev.vl3box.com
@@ -106,7 +106,7 @@ spec:
             pathType: Prefix
             backend:
               service:
-                name: vl3box-mirror
+                name: vl3box-prev
                 port:
                   number: 3000
     - host: server.prev.vl3box.com
@@ -116,7 +116,7 @@ spec:
             pathType: Prefix
             backend:
               service:
-                name: vl3box-mirror
+                name: vl3box-prev
                 port:
                   number: 3000
   tls:
