@@ -13,3 +13,10 @@ ingress:
       originServerName: e.vl3box.com
       noTLSVerify: true
   - service: http_status:404
+
+  - hostname: "*.prev.vl3box.com"
+    service: https://nginx-external-controller.network.svc.cluster.local:443
+    originRequest:
+      originServerName: e.vl3box.com
+      noTLSVerify: true
+  - service: http_status:404

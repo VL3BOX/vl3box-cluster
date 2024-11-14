@@ -19,7 +19,7 @@ spec:
     fullnameOverride: nginx-internal
 
     controller:
-      replicaCount: 2
+      replicaCount: 1
 
       updateStrategy:
         type: RollingUpdate
@@ -86,7 +86,7 @@ spec:
             any: true
 
       extraArgs:
-        default-ssl-certificate: "network/vl3box-domain-tls"
+        default-ssl-certificate: "network/prev-vl3box-domain-tls"
 
       topologySpreadConstraints:
         - maxSkew: 1
@@ -99,8 +99,8 @@ spec:
 
       resources:
         requests:
-          cpu: 200m
-          memory: 512Mi
+          cpu: 10m
+          memory: 128Mi
         limits:
           cpu: 1000m
           memory: 1Gi
