@@ -23,7 +23,7 @@ spec:
   issuerRef:
     name: letsencrypt-production
     kind: ClusterIssuer
-  commonName: "vl3box.com"
+  commonName: "prev.vl3box.com"
   dnsNames:
     - "prev.vl3box.com"
     - "*.prev.vl3box.com"
