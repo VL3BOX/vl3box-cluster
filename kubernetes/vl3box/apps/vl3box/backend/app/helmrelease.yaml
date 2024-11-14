@@ -29,7 +29,7 @@ spec:
           app:
             image:
               repository: ghcr.io/vl3box/vl3box-backend
-              tag: latest@sha256:54e78c9984cb9d896478d4613b7cdf9efb0e7ae8609f067e95e3b92610b46d70
+              tag: vl3box@sha256:7a589431e79ed87ddfaba5fdad4e2acd1c955873b49b57b540d8bb4df821f56f
             env:
               LOG_LEVEL: info
               NODE_ENV: production
